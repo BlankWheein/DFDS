@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DFDS</name>
+    </assembly>
+    <members>
+        <member name="M:DFDS.Controllers.BookingsController.Get(System.Int32)">
+            <summary>
+            Used to get 1 or all bookings
+            </summary>
+            <param name="bid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DFDS.Controllers.BookingsController.Post(DFDS.Classes.EditBooking)">
+            <summary>
+            Used to update a bookings passengers, passenger limit and date
+            </summary>
+            <param name="eb"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:DFDS.Controllers.BookingsController.Delete(System.Int32)">
+            <summary>
+            Used to delete a booking
+            </summary>
+            <param name="bid"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:DFDS.Controllers.BookingsController.Put(DFDS.DatabaseModels.Booking)">
+            <summary>
+            Used to create a new booking
+            </summary>
+            <param name="b"></param>
+            <returns></returns>
+            <exception cref="T:Microsoft.AspNetCore.Http.BadHttpRequestException"></exception>
+        </member>
+        <member name="M:DFDS.Controllers.PassengerController.Get(System.Int32)">
+            <summary>
+            Used to get 1 or all passengers
+            </summary>
+            <param name="pid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DFDS.Controllers.PassengerController.Post(DFDS.DatabaseModels.Passenger)">
+            <summary>
+            Used to update a passengers name
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+            <exception cref="T:Microsoft.AspNetCore.Http.BadHttpRequestException"></exception>
+        </member>
+        <member name="M:DFDS.Controllers.PassengerController.Delete(System.Int32)">
+            <summary>
+            Used to delete a passenger
+            </summary>
+            <param name="pid"></param>
+            <returns></returns>
+            <exception cref="T:Microsoft.AspNetCore.Http.BadHttpRequestException"></exception>
+        </member>
+        <member name="M:DFDS.Controllers.PassengerController.Put(DFDS.DatabaseModels.Passenger)">
+            <summary>
+            Used to create a new passenger
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+            <exception cref="T:Microsoft.AspNetCore.Http.BadHttpRequestException"></exception>
+        </member>
+        <member name="M:DFDS.Controllers.PassportController.Get(System.Int32)">
+            <summary>
+            Used to get 1 or all passports
+            </summary>
+            <param name="pid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DFDS.Controllers.PassportController.Post(DFDS.DatabaseModels.Passport)">
+            <summary>
+            Used to update a passport
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+            <exception cref="T:Microsoft.AspNetCore.Http.BadHttpRequestException"></exception>
+        </member>
+        <member name="M:DFDS.Controllers.PassportController.Delete(System.Int32)">
+            <summary>
+            Used to delete a passport
+            </summary>
+            <param name="pid"></param>
+            <returns></returns>
+            <exception cref="T:Microsoft.AspNetCore.Http.BadHttpRequestException"></exception>
+        </member>
+        <member name="M:DFDS.Controllers.PassportController.Put(DFDS.DatabaseModels.Passport)">
+            <summary>
+            Used to create a new passport
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+            <exception cref="T:Microsoft.AspNetCore.Http.BadHttpRequestException"></exception>
+        </member>
+    </members>
+</doc>
