@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IGTCM5Jxgu++Ntv3DovvKjMxyW0I+INaTXBIOUemGRowp6Vzj47SQIG5JH+aMNlaYFkc6eyg23ioIbgfMp8WJg==",
+  "dgSpecHash": "goYfOaFknGEINHDR2BOz4+1tBH5SSQKVX6lUy8mhYIxFIHbaDA/PjCulvqu6ohvobvAcykrhH3ppUxWdP/QMLw==",
   "success": true,
   "projectFilePath": "C:\\Users\\noobs\\OneDrive\\Documents\\GitHub\\DFDS\\DFDS.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,8 @@
     "C:\\Users\\noobs\\.nuget\\packages\\dotenv.net\\3.1.2\\dotenv.net.3.1.2.nupkg.sha512",
     "C:\\Users\\noobs\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\noobs\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\noobs\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.9\\microsoft.aspnet.webapi.client.5.2.9.nupkg.sha512",
+    "C:\\Users\\noobs\\.nuget\\packages\\microsoft.aspnet.webapi.core\\5.2.9\\microsoft.aspnet.webapi.core.5.2.9.nupkg.sha512",
     "C:\\Users\\noobs\\.nuget\\packages\\microsoft.aspnetcore.authentication.certificate\\6.0.16\\microsoft.aspnetcore.authentication.certificate.6.0.16.nupkg.sha512",
     "C:\\Users\\noobs\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.0\\microsoft.aspnetcore.authorization.6.0.0.nupkg.sha512",
     "C:\\Users\\noobs\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.0\\microsoft.aspnetcore.components.6.0.0.nupkg.sha512",
@@ -101,5 +103,16 @@
     "C:\\Users\\noobs\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
     "C:\\Users\\noobs\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.Core 5.2.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.Core",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

@@ -8,6 +8,11 @@ namespace DFDS.Controllers.Repositories
     public class BookingRepository : BaseRepository
     {
         public BookingRepository(DatabaseContext context, Mapper mapper) : base(context, mapper) {}
+
+        public BookingRepository() : base()
+        {
+            
+        }
         public IEnumerable<BookingDto>? GetBookings(int bid)
         {
             return ctx.Bookings
@@ -34,6 +39,10 @@ namespace DFDS.Controllers.Repositories
         internal List<Passenger>? GetPassengerById(ICollection<int> passengers)
         {
             return ctx.Passengers.Where(p => passengers.Contains(p.Id)).ToList();
+        }
+        internal Passenger? GetPassengerById(int pid)
+        {
+            return ctx.Passengers.FirstOrDefault(p => p.Id == pid);
         }
 
         internal void RemoveBooking(Booking bid)

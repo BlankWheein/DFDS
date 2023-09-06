@@ -9,13 +9,17 @@ namespace DFDS.Controllers.Repositories
         private DatabaseContext context;
         protected readonly Mapper mapper;
 
+        public BaseRepository()
+        {
+            
+        }
         public BaseRepository(DatabaseContext context, Mapper mapper)
         {
             this.ctx = context;
             this.mapper = mapper;
         }
 
-        public void SaveChanges()
+        public virtual void SaveChanges()
         {
             ctx.SaveChanges();
         }

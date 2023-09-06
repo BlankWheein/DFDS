@@ -2,6 +2,7 @@
 using DFDS.Classes;
 using DFDS.Controllers.Repositories;
 using DFDS.DatabaseModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -28,7 +29,7 @@ namespace DFDS.Controllers
             List<BookingDto> x = repo.GetBookings(bid)?.ToList() ?? new();
             return Ok(x);
         }
-        
+
         /// <summary>
         /// Used to update a bookings passengers, passenger limit and date
         /// </summary>
@@ -38,14 +39,37 @@ namespace DFDS.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] EditBooking eb)
         {
-            if (eb.PassengerLimit < eb.Passengers.Count)
-                throw new Exception("too many passengers");
             var booking = repo.GetBookingByIdIncludePassenger(eb.Id) ?? throw new Exception("not found");
+            if (eb.PassengerLimit < booking.Passengers.Count)
+                throw new Exception("too many passengers");
             booking.BookingDate = eb.BookingDate;
             booking.PassengerLimit = eb.PassengerLimit;
-            booking.Passengers = repo.GetPassengerById(eb.Passengers)?.ToList() ?? new();
             repo.SaveChanges();
             return Ok();
+        }
+        [HttpPost("Passengers")]
+        public async Task<IActionResult> UpdatePassengers([FromBody] EditBookingPassengers eb)
+        {
+            var booking = repo.GetBookingByIdIncludePassenger(eb.Id) ?? throw new Exception("not found");
+            
+            foreach (var item in eb.PassengersToAdd)
+            {
+                if (booking.Passengers.Any(p => p.Id == item))
+                    continue;
+                var passenger = repo.GetPassengerById(item) ?? throw new Exception("not found");
+                booking.Passengers.Add(passenger);
+            }
+            foreach (var item in eb.PassengersToRemove)
+            {
+                if (!booking.Passengers.Any(p => p.Id == item))
+                    continue;
+                var passenger = repo.GetPassengerById(item) ?? throw new Exception("not found");
+                booking.Passengers.Remove(passenger);
+            }
+            if (booking.PassengerLimit < booking.Passengers.Count)
+                throw new Exception("too many passengers");
+            repo.SaveChanges();
+            return Ok(booking);
         }
         /// <summary>
         /// Used to delete a booking
@@ -72,11 +96,10 @@ namespace DFDS.Controllers
         {
             if (b.BookingDate == DateTime.MinValue)
                 throw new BadHttpRequestException("");
-            b.Passengers.Clear();
+            b.Passengers = repo.GetPassengerById(b.Passengers.Select(p => p.Id).ToList())?.ToList() ?? new();
             repo.AddBooking(b);
             repo.SaveChanges();
             return Ok();
-
         }
     }
 }

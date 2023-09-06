@@ -3,6 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DFDS.DatabaseModels
 {
+    public class PassengerDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = "";
+        public ICollection<PassportDto> Passports { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+    }
     public class Passenger
     {
         public int Id { get; set; }

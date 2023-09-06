@@ -34,9 +34,11 @@ namespace DFDS.Controllers
         /// <returns></returns>
         /// <exception cref="BadHttpRequestException"></exception>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Passenger p)
+        public IActionResult Post([FromBody] Passenger p)
         {
-            var passenger = repo.GetPassengerById(p) ?? throw new BadHttpRequestException("");
+            var passenger = repo.GetPassengerById(p);
+            if (passenger == null)
+                return NotFound("Passenger not found");
             passenger.Name = p.Name;
             repo.SaveChanges();
             return Ok();
@@ -48,7 +50,7 @@ namespace DFDS.Controllers
         /// <returns></returns>
         /// <exception cref="BadHttpRequestException"></exception>
         [HttpDelete]
-        public async Task<IActionResult> Delete(int pid = 0)
+        public IActionResult Delete(int pid = 0)
         {
             var passenger = repo.GetPassengerByIdIncludePassports(pid) ?? throw new BadHttpRequestException("");
             repo.RemovePassenger(passenger);
@@ -62,7 +64,7 @@ namespace DFDS.Controllers
         /// <returns></returns>
         /// <exception cref="BadHttpRequestException"></exception>
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] Passenger p)
+        public IActionResult Put([FromBody] Passenger p)
         {
             if (p.Passports?.Any() != true)
                 throw new BadHttpRequestException("");

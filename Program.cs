@@ -2,10 +2,11 @@ using AutoMapper;
 using DFDS;
 using DFDS.Controllers.Repositories;
 using DFDS.DatabaseModels;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllers().AddNewtonsoftJson(op =>
+builder.Services.AddControllers(opt => opt.Filters.Add<HttpResponseExceptionFilter>()).AddNewtonsoftJson(op =>
 {
     op.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
     op.SerializerSettings.DefaultValueHandling = Newtonsoft.Json.DefaultValueHandling.Ignore;
@@ -14,6 +15,7 @@ builder.Services.AddControllers().AddNewtonsoftJson(op =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 builder.Services.AddDbContext<DatabaseContext>( dbContextOptions => dbContextOptions.UseMySql(new MySqlServerVersion(new Version(8, 0, 27)), o =>
 {

@@ -9,7 +9,10 @@ namespace DFDS.Controllers.Repositories
         public PassportRepository(DatabaseContext context, Mapper mapper) : base(context, mapper)
         {
         }
-
+        public PassportRepository() : base()
+        {
+            
+        }
         internal Passenger? GetPassengerById(int id)
         {
             return ctx.Passengers.FirstOrDefault(pa => pa.Id == id);

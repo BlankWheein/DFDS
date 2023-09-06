@@ -23,7 +23,7 @@ namespace DFDS.Controllers
         /// <param name="pid"></param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> Get(int pid = 0)
+        public IActionResult Get(int pid = 0)
         {
             return Ok(repo.GetPassengers(pid));
         }
@@ -34,7 +34,7 @@ namespace DFDS.Controllers
         /// <returns></returns>
         /// <exception cref="BadHttpRequestException"></exception>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Passport p)
+        public IActionResult Post([FromBody] Passport p)
         {
             if (!p.isValid())
                 throw new BadHttpRequestException("");
@@ -53,7 +53,7 @@ namespace DFDS.Controllers
         /// <returns></returns>
         /// <exception cref="BadHttpRequestException"></exception>
         [HttpDelete]
-        public async Task<IActionResult> Delete(int pid = 0)
+        public IActionResult Delete(int pid = 0)
         {
             var pass = repo.GetPassportById(pid) ?? throw new BadHttpRequestException("");
             repo.RemovePassport(pass);
@@ -67,7 +67,7 @@ namespace DFDS.Controllers
         /// <returns></returns>
         /// <exception cref="BadHttpRequestException"></exception>
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] Passport p)
+        public IActionResult Put([FromBody] Passport p)
         {
             if (p.Passenger == null)
                 throw new BadHttpRequestException("");
