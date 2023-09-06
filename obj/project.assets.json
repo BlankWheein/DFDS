@@ -4203,11 +4203,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\noobs\\OneDrive\\Documents\\GitHub\\DFDS\\DFDS.csproj",
+      "projectUniqueName": "C:\\Users\\noobs\\OneDrive\\Documents\\DFDS\\DFDS.csproj",
       "projectName": "DFDS",
-      "projectPath": "C:\\Users\\noobs\\OneDrive\\Documents\\GitHub\\DFDS\\DFDS.csproj",
+      "projectPath": "C:\\Users\\noobs\\OneDrive\\Documents\\DFDS\\DFDS.csproj",
       "packagesPath": "C:\\Users\\noobs\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\noobs\\OneDrive\\Documents\\GitHub\\DFDS\\obj\\",
+      "outputPath": "C:\\Users\\noobs\\OneDrive\\Documents\\DFDS\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\noobs\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4344,7 +4344,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   },

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllers(opt => opt.Filters.Add<HttpResponseExceptionFilter>()).AddNewtonsoftJson(op =>
+builder.Services.AddControllers(/*opt => opt.Filters.Add<HttpResponseExceptionFilter>()*/).AddNewtonsoftJson(op =>
 {
     op.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
     op.SerializerSettings.DefaultValueHandling = Newtonsoft.Json.DefaultValueHandling.Ignore;
